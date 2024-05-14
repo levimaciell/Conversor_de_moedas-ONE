@@ -28,7 +28,7 @@ public class Ui {
                 """);
     }
 
-    public String pegarOpcao(){
+    public String pegarOpcaoMenu(){
         System.out.print("""
                 ║  Digite abaixo a opção desejada:                  ║
                 ╠═══════════════════════════════════════════════════╝
@@ -44,5 +44,24 @@ public class Ui {
                 ╚═══════════════════════════════════════════════════╝""");
     }
 
+    //TODO: verificar valores negativos
+    public double pegarOpcaoConverter(){
+        System.out.print("""
+                ╔═══════════════════════════════════════════════════╗
+                ║  Digite o valor a ser convertido:                 ║
+                ╠═══════════════════════════════════════════════════╝
+                """);
+        System.out.print("╚════>> ");
+        return Double.parseDouble(sc.nextLine());
+    }
 
+    public void exibirConversao(String moedaBase, String moedaAlvo, double valorConvertido, double valorConverter) {
+
+        String toFormat =
+                String.format("║  %.2f %s equivalem a %.2f %s  ║",valorConverter, moedaBase,valorConvertido,moedaAlvo);
+
+        System.out.println("╔" + "═".repeat(toFormat.length() - 2) + "╗");
+        System.out.println(toFormat);
+        System.out.println("╚" + "═".repeat(toFormat.length() - 2) + "╝");
+    }
 }
